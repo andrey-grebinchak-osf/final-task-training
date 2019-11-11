@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.websocket.server.PathParam;
 
 @RestController
-@RequestMapping("/finaltask")
+@RequestMapping("/")
 public class TestController {
 
     @Autowired

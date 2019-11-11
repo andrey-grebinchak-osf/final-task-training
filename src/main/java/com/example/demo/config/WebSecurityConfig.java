@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.security.AuthenticationFilter;
 import com.example.demo.security.LoginFilter;
 import com.example.demo.service.JwtTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/finaltask/login").permitAll()
                 .anyRequest().authenticated().and()
                 // filter for login action
-                .addFilterBefore(new LoginFilter(authenticationManager(), jwtTokenService), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new LoginFilter(authenticationManager(), jwtTokenService), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new AuthenticationFilter(jwtTokenService), UsernamePasswordAuthenticationFilter.class);
     }
 
     // encrypt user password

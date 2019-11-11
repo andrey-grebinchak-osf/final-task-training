@@ -37,5 +37,4 @@ public class AuthenticationFilter extends GenericFilterBean {
             res.getOutputStream().write(objectBytes);
         }
     }
-
 }
