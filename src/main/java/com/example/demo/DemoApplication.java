@@ -15,11 +15,9 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-
 	//check whether connection to DB is established
-	@Bean
+	/*@Bean
 	CommandLineRunner checkConnection(TestRepository repository) {
 		return args -> log.info("Amount of tests: " + repository.count());
-	}
-
+	}*/
 }

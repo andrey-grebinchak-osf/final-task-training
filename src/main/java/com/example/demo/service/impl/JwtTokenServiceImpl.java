@@ -1,9 +1,11 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.dto.AuthSuccessDTO;
+import com.example.demo.service.JwtTokenService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,9 @@ import java.util.Date;
 public class JwtTokenServiceImpl implements JwtTokenService {
 
     private final Long EXPIRATION_TIME = 1_800_000L; // 30min
-    private final String SECRET_KEY = "secretKey";
+
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
 
     /*
      * method for token generation

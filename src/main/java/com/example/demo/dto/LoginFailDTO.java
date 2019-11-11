@@ -10,8 +10,8 @@ public class LoginFailDTO {
     private String message;
 
     public LoginFailDTO(String message) {
-	super();
-	this.message = message;
+        super();
+        this.message = message;
     }
 
     public String getMessage() {

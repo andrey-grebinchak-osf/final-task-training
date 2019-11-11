@@ -19,10 +19,10 @@ public class AuthSuccessDTO {
     private String message;
 
     public AuthSuccessDTO(String token, Date expiresAt, String message) {
-	super();
-	this.token = token;
-	this.expiresAt = expiresAt;
-	this.message = message;
+        super();
+        this.token = token;
+        this.expiresAt = expiresAt;
+        this.message = message;
     }
 
     public String getToken() {

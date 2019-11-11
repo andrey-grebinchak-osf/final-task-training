@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Test;
+import com.example.demo.entity.Test;
 import com.example.demo.exception.TestNotFoundException;
 import com.example.demo.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.websocket.server.PathParam;
-
 @RestController
-@RequestMapping("/")
+@RequestMapping("/finaltask")
 public class TestController {
 
     @Autowired
     public TestService testService;
-
-    //get test by name
-    @GetMapping(value = "/test/{name}")
-    public Test getTestByName(@PathParam("name") String name) {
-        return testService.findTestByName(name);
-    }
 
     //get all
     @GetMapping(value = "/tests")
@@ -46,7 +38,6 @@ public class TestController {
     //get test by id
     @GetMapping("/test/{id}")
     public Test getOneTest(@PathVariable Long id) {
-
         return testService.findTestById(id)
                 .orElseThrow(() -> new TestNotFoundException(id));
     }
@@ -54,7 +45,6 @@ public class TestController {
     //update test
     @PutMapping("/test/{id}")
     public Test updateTest(@RequestBody Test newTest, @PathVariable Long id) {
-
         return testService.findTestById(id)
                 .map(test -> {
                     test.setName(newTest.getName());

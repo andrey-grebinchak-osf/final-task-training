@@ -1,4 +1,4 @@
-package com.example.demo.security;
+package com.example.demo.security.filter;
 
 import com.example.demo.dto.LoginFailDTO;
 import com.example.demo.service.JwtTokenService;

@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,10 +13,14 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer {
-    @Id @GeneratedValue(strategy= GenerationType.SEQUENCE)
+public class EskillUser {
+    @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private long id;
 
-    private String name;
+    private String username;
+    private String password;
 
+    private Long customerId;
+    private Long roleId;
 }

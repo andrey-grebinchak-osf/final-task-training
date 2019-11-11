@@ -1,4 +1,4 @@
-package com.example.demo.security;
+package com.example.demo.security.filter;
 
 import com.example.demo.dto.AuthSuccessDTO;
 import com.example.demo.dto.LoginDataDTO;
